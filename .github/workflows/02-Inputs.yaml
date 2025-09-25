@@ -23,23 +23,13 @@ on:
             environment:
                 description: 'Environment'
                 required: true
-                default: 'dev'
                 type: environment
 
 jobs:
     print-tag:
         runs-on: ubuntu-latest
         steps:
-        - name: Print tags
-          run: |
-            echo "Log Level: ${{ github.event.inputs.logLevel }}"
-            echo "Print Tags: ${{ github.event.inputs.print_tags }}"
-            echo "Tags: ${{ github.event.inputs.tags }}"
-            echo "Environment: ${{ github.event.inputs.environment }}"
-            if [ "${{ github.event.inputs.print_tags }}" = "true" ]; then
-              for tag in ${{ github.event.inputs.tags }}; do
-                echo "Tag: $tag"
-              done
-            else
-              echo "Printing tags is disabled."
-            fi
+        - name: Print the input tag to STDOUT
+          run: echo The tags are ${{ input.tags }}
+        - name: print the environment
+          run: echo The tags are  ${{ input.environment }}          
