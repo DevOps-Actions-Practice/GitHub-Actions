@@ -1,4 +1,4 @@
-name: HelloWorld
+name: Conditions
 #when to trigger this pipeline. we can trigger on multiple events like push, pull request, release, creating PR, creating issue etc.
 on: [push]
 #list of jobs to be run as part of this pipeline
