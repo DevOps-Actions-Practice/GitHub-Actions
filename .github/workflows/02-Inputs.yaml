@@ -16,9 +16,8 @@ on:
                 required: true
                 type: boolean
             tags:
-                description: 'Tags to print'
+                description: 'Test Scenario Tags'
                 required: true
-                default: 'tag1,tag2'
                 type: string
             environment:
                 description: 'Environment'
@@ -30,6 +29,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Print the input tag to STDOUT
-          run: echo The tags are ${{ input.tags }}
+          run: echo The tags are ${{ inputs.tags }}
         - name: print the environment
-          run: echo The tags are  ${{ input.environment }}          
+          run: echo The tags are  ${{ inputs.environment }}          
