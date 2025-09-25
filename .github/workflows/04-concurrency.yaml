@@ -6,7 +6,7 @@ concurrency:
 jobs:
     concurrency_job:
         runs-on: ubuntu-latest
-        steps:
+        steps: 
         - name: step1
           run: sleep 20
         - name: step2
