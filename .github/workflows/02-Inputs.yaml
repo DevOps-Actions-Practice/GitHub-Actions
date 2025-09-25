@@ -14,7 +14,6 @@ on:
             print_tags:
                 description: 'Print tags'
                 required: true
-                default: 'false'
                 type: boolean
             tags:
                 description: 'Tags to print'
