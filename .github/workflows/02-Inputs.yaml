@@ -1,0 +1,46 @@
+name: Inputs
+on:
+    workflow_dispatch:
+        inputs:
+            logLevel:
+                description: 'Log level'
+                required: true
+                default: 'warning'
+                type: choice
+                options:
+                  - debug
+                  - warning
+                  - error
+            print_tags:
+                description: 'Print tags'
+                required: true
+                default: 'false'
+                type: boolean
+            tags:
+                description: 'Tags to print'
+                required: true
+                default: 'tag1,tag2'
+                type: string
+            environment:
+                description: 'Environment'
+                required: true
+                default: 'dev'
+                type: environment
+
+jobs:
+    print-tag:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Print tags
+          run: |
+            echo "Log Level: ${{ github.event.inputs.logLevel }}"
+            echo "Print Tags: ${{ github.event.inputs.print_tags }}"
+            echo "Tags: ${{ github.event.inputs.tags }}"
+            echo "Environment: ${{ github.event.inputs.environment }}"
+            if [ "${{ github.event.inputs.print_tags }}" = "true" ]; then
+              for tag in ${{ github.event.inputs.tags }}; do
+                echo "Tag: $tag"
+              done
+            else
+              echo "Printing tags is disabled."
+            fi
